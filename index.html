@@ -1,21 +1,136 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LawyerTravel</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
-    <script src="./lawyertravel.js?param1=value1&param2=value2" defer></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LawyerTravel</title>
+	<link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+
+			width: 100vw;
+			height: 100vh;
+
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+
+			background: rgb(204, 198, 198);
+
+		}
+		#container{
+			width: 95%;
+			height: 93%;
+			display: flex;
+			flex-wrap: wrap;
+			/*justify-content: space-between;*/
+			align-items: flex-start;
+			align-content: flex-start;
+
+			gap: 2%;
+			background-color: rgb(140, 141, 158);
+			/*border: 1px solid red;*/
 
 
+		}
+		#zagolovok{
+			text-align: center;
+			font-weight: bolder;
+			color: rgb(20, 10, 120);
+			color: maroon;
+			font-size: 5vmin;
+		}
+
+		.parentblock{
+			/*position: relative;*/
+			flex:1;
+			flex-basis: 20%;
+			min-height: 50px;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			
+			color: antiquewhite;
+
+			background-color: rgba(65, 65, 65, 0.99);
+			/*border: 1px solid red;*/
+		}
+
+		.parentblock:last-child{
+			min-height: 250px;
+			height: 80%;
+			align-self: stretch;
+		}
+
+
+
+	</style>
+
+	<script src="./zminni.js"></script>
+	
 </head>
 <body>
 
-  <div class="parentblock">
-<!--
-    <script src="./animationtravel.js"></script>
--->
-  </div>
+<div id="zagolovok">Сторінка сайту на якій знаходиться блок з анімаційною сценою</div>
+<div id="container">
+	<div class="parentblock">Блок №1 з іншою інформацією сайту</div>
+	<div class="parentblock">Блок №2 з іншою інформацією сайту</div>
+	<div class="parentblock">Блок №3 з іншою інформацією сайту</div>
+	<div class="parentblock">Блок №4 з іншою інформацією сайту</div>
+	<div class="parentblock"><script src="./lawyer_travel.js" c="0" f="goals.json" defer></script></div>
+</div>
+
+
+
+<script>
+
+</script>
+
 </body>
 </html>
+	<!--
+	style="width: 0%; height: 0vh;"
+	<script src="./animationtravel.js"></script>
+	/*
+		test_btn1.addEventListener('click', function() {
+			const p_block = document.querySelector(`#gra`);
+			p_block.style.height = `${p_block.offsetHeight - 10}px`;
+		});	
+
+		test_btn2.addEventListener('click', function() {
+			const p_block = document.querySelector(`#gra`);
+			p_block.style.width = `${p_block.offsetWidth - 10}px`;
+		});	
+
+	*/
+
+<div class="message"></div>
+<div class="message"></div>
+<div class="message"></div>
+<div class="message"></div>
+<div class="message"></div>
+<div class="message"></div>
+
+<div id="gra"></div>
+
+
+<button class="knopka" id="test_btn1" style="position: absolute; left: 100px; bottom: 20px;">Test1</button>
+<button class="knopka" id="test_btn2" style="position: absolute; left: 150px; bottom: 20px;">Test2</button>
+
+
+
+
+
+
+
+	-->
+
+
+
