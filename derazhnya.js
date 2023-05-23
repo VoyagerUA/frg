@@ -203,7 +203,7 @@ function ShowReg(param){
 							clearInterval(idSI2);
 							container_inputs_reg.style.transform = `perspective(500px) rotateX(${0}deg)`;						
 
-							certificate_input_reg.focus();
+							//certificate_input_reg.focus();
 
 							btn2.style.background = `radial-gradient(circle, rgba(200,200,200,0.2), rgba(220,220,230,1))`;
 							btn2.addEventListener('mouseenter', function(){this.style.backgroundColor = 'rgba(90,150,255,0.7)'; this.style.cursor = 'pointer'});
@@ -238,7 +238,7 @@ function ShowReg(param){
 							clearInterval(idSI2);
 							container_inputs_reg.style.transform = `perspective(500px) rotateX(${0}deg)`;						
 
-							certificate_input_reg.focus();
+							//certificate_input_reg.focus();
 
 							btn2.style.background = `radial-gradient(circle, rgba(200,200,200,0.2), rgba(220,220,230,1))`;
 							btn2.addEventListener('mouseenter', function(){this.style.backgroundColor = 'rgba(90,150,255,0.7)'; this.style.cursor = 'pointer'});
