@@ -84,7 +84,9 @@ setTimeout(() => {
 	setTimeout(() => {
 		RL.style.opacity = '1';
 		parrentScript.style.backgroundImage = `url(data:image/svg+xml;${new Date().getTime()};base64,${btoa(Scene3_svg)})`;
-	}, 566.6667);
+//	}, 566.6667);
+	}, 500);
+
 }, 5000);
 
 
