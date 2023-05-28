@@ -1,3 +1,3 @@
-# frg -> Derazhnya
+# frg -> Prolisok V01
 Development for person with username Frg
-23/05/2023
+Start 28/05/2023
