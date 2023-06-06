@@ -1,23 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Відео демонстрація</title>
-	<link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
+  <meta charset="UTF-8">
+  <title>Турагентство «Вавилон»</title>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+	*{
+		margin: 0;		
+		padding: 0;
+	}
+
+	body{
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+    #videoContainer {
+		width: auto;
+		height: auto;
+    }
+
+    #myVideo {
+      width: 100%;
+      height: 100%;
+    }
+
+    #subtitles {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+  </style>
 </head>
 <body>
-  <h1>Демонстрація відео</h1>
+	
 
-  <video id="id_video" autoplay loop>
-    <source src="Comp1.mp4" type="video/mp4">
-    <source src="Comp1.webm" type="video/webm">
-    Ваш браузер не підтримує відео тег.
-  </video>
+  <div id="videoContainer">
+    <video id="myVideo" src="./vavilon.mp4" autoplay controls></video>
+    <div id="subtitles"></div>
+  </div>
 
-  <p>Це приклад відео демонстрації на веб-сторінці. Ви можете використовувати елемент &lt;video&gt; для вставки відеофайлів у вашу веб-сторінку.</p>
+  <script>
+    const video = document.getElementById('myVideo');
+    const subtitlesContainer = document.getElementById('subtitles');
 
+    video.addEventListener('loadedmetadata', function() {
+      // Завантаження субтитрів
+      const track = document.createElement('track');
+      track.src = 'vavilonsubtitles.vtt';
+      track.kind = 'subtitles';
+      track.srclang = 'ru';
+      track.label = 'Russian';
+      video.appendChild(track);
+
+      // Відображення субтитрів
+      video.textTracks[0].mode = 'showing';
+
+      // Оновлення субтитрів при зміні відео
+      video.addEventListener('timeupdate', function() {
+        const activeCues = video.textTracks[0].activeCues;
+
+        if (activeCues.length > 0) {
+          // Отримання тексту активних субтитрів
+          const currentSubtitle = activeCues[0].text;
+
+          // Відображення тексту субтитрів в окремому елементі на екрані
+          //subtitlesContainer.innerText = currentSubtitle;
+
+
+        } else {
+          // Якщо немає активних субтитрів, очистити контейнер
+          subtitlesContainer.innerText = '';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
-
