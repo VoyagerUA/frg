@@ -4,75 +4,98 @@
   <meta charset="UTF-8">
   <title>Турагентство «Вавилон»</title>
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;,">
-
   <style>
-	*{
-		margin: 0;		
-		padding: 0;
-	}
-
-	body{
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-	}
-
-    #videoContainer {
-		width: auto;
-		height: auto;
+    *{
+      margin: 0;		
+      padding: 0;
+      box-sizing: border-box;
     }
-
+    body{
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(100, 100, 100, 0.2);
+      font-size: 2.5vmin;
+    }
+    #container{
+      margin: 2vmin;
+      padding: 2vmin;
+      width: 70%;
+      height: 90%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.5vmin;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.90);
+      box-shadow: 0.5vmin 0.5vmin 2vmin 0.5vmin rgba(0, 0, 0, 0.5);
+    }
+    h1,h2{
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.34);
+    }
+    p{
+      width: 100%;
+      text-align: center;
+    }
+    #videoContainer {
+		  width: 50%;
+		  height: auto;
+    }
     #myVideo {
       width: 100%;
       height: 100%;
     }
-
     #subtitles {
+      display: none;
       position: absolute;
       bottom: 20px;
       left: 20px;
-      color: white;
+      color: navy;
       font-size: 20px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     }
   </style>
 </head>
 <body>
-	
-
-  <div id="videoContainer">
-    <video id="myVideo" src="./vavilon.mp4" autoplay controls></video>
-    <div id="subtitles"></div>
+  <div id="container">
+    <h1>ADVOCATE</h1>
+    <h2>TRAVEL</h2>
+    <p><strong>Шановні адвокати та помічники!</strong></p>
+    <p>Раді вас вітати на нашому спільному сервісі та хочемо коротко про нього розповісти.</p>
+    <p><strong>Система Advocate Travel</strong> створена для максимального задоволення постійно зростаючих потреб адвокатів та їх помічників подорожувати, розважатися та відпочивати. Ми чекаємо на своєму борту всіх адвокатів, у тому числі тих, хто припинив діяльність. Бо колишніх адвокатів не буває.</p>
+    <p><strong>Далі пропонуємо подивитись наше промо відео, і потім продовжимо.</strong>
+    <div id="videoContainer">
+      <video id="myVideo" src="./v2vavilon.mp4" autoplay controls></video>
+      <div id="subtitles"></div>
+    </div>
+    <p><strong>У розділі «Reception»</strong> розміщуються різні чутки, туристичні новини та інші оголошення. Для того, щоб не пропустити важливу інформацію – вам буде відображатися значок про не прочитане нове повідомлення.
   </div>
-
   <script>
     const video = document.getElementById('myVideo');
     const subtitlesContainer = document.getElementById('subtitles');
-
     video.addEventListener('loadedmetadata', function() {
       // Завантаження субтитрів
       const track = document.createElement('track');
-      track.src = 'vavilonsubtitles.vtt';
+      track.src = './vavilonsubtitles.vtt';
       track.kind = 'subtitles';
       track.srclang = 'ru';
       track.label = 'Russian';
       video.appendChild(track);
-
       // Відображення субтитрів
       video.textTracks[0].mode = 'showing';
-
       // Оновлення субтитрів при зміні відео
       video.addEventListener('timeupdate', function() {
         const activeCues = video.textTracks[0].activeCues;
-
         if (activeCues.length > 0) {
           // Отримання тексту активних субтитрів
           const currentSubtitle = activeCues[0].text;
-
           // Відображення тексту субтитрів в окремому елементі на екрані
           //subtitlesContainer.innerText = currentSubtitle;
-
-
         } else {
           // Якщо немає активних субтитрів, очистити контейнер
           subtitlesContainer.innerText = '';
